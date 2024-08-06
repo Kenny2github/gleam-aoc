@@ -1,0 +1,11 @@
+# default Gleam
+*.beam
+*.ez
+/build
+erl_crash.dump
+
+# these are copyrighted and custom per-user
+/inputs
+/outputs
+# to see if it's a logic issue or language skill issue
+/tmp.py
