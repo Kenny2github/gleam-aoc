@@ -32,6 +32,13 @@ pub fn read_output(day day: Int, part part: Int) -> String {
   output
 }
 
+pub fn run_part(
+  day day: Int,
+  step step: fn(List(String)) -> List(Int),
+) -> String {
+  read_input(day) |> string.split("\n") |> step |> int.sum |> int.to_string
+}
+
 pub fn test_part(day day: Int, part part: Int, code code: fn() -> String) -> Nil {
   let golden = read_output(day, part)
   should.equal(code(), golden)

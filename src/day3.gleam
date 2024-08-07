@@ -15,15 +15,11 @@ pub fn main() {
 }
 
 pub fn part1() -> String {
-  part(symbol_nums)
+  utils.run_part(3, symbol_nums)
 }
 
 pub fn part2() -> String {
-  part(gear_ratios)
-}
-
-fn part(step: fn(List(String)) -> List(Int)) -> String {
-  utils.read_input(3) |> string.split("\n") |> step |> int.sum |> int.to_string
+  utils.run_part(3, gear_ratios)
 }
 
 type Pos {

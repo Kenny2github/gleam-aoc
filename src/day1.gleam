@@ -12,19 +12,11 @@ pub fn main() {
 }
 
 pub fn part1() -> String {
-  part(line_digit_num)
+  utils.run_part(1, list.map(_, line_digit_num))
 }
 
 pub fn part2() -> String {
-  part(line_word_num)
-}
-
-fn part(line_mapper: fn(String) -> Int) -> String {
-  utils.read_input(1)
-  |> string.split("\n")
-  |> list.map(line_mapper)
-  |> int.sum
-  |> int.to_string
+  utils.run_part(1, list.map(_, line_word_num))
 }
 
 fn line_digit_num(line line: String) -> Int {
