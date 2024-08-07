@@ -15,3 +15,5 @@ Requires an `inputs/dayN.txt` for every `dayN.gleam` that exists.
 gleam test  # Test the project
 ```
 Requires an `inputs/dayN.txt` and an `outputs/dayN.txt` (as many lines as parts) for every `dayN_test.gleam` that exists.
+
+Alternatively, use `gleam test _demo` to run tests on the `inputs_demo` and `outputs_demo` directories instead.

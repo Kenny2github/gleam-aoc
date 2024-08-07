@@ -1,13 +1,10 @@
 import day3
-import gleeunit/should
 import utils
 
 pub fn part1_test() {
-  let golden = utils.read_output(3, 1)
-  should.equal(golden, day3.part1())
+  utils.test_part(3, 1, day3.part1)
 }
 
 pub fn part2_test() {
-  let golden = utils.read_output(3, 2)
-  should.equal(golden, day3.part2())
+  utils.test_part(3, 2, day3.part2)
 }
