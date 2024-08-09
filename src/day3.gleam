@@ -1,5 +1,4 @@
 import gleam/dict
-import gleam/function
 import gleam/int
 import gleam/io
 import gleam/list
@@ -87,9 +86,9 @@ fn symbols(lines: List(String), symbol: String) -> List(Pos) {
         True -> Error(Nil)
       }
     })
-    |> list.filter_map(function.identity)
+    |> result.values
   })
-  |> list.flat_map(function.identity)
+  |> list.flatten
 }
 
 fn numbers(lines: List(String)) -> dict.Dict(Pos, Int) {
@@ -105,7 +104,7 @@ fn numbers(lines: List(String)) -> dict.Dict(Pos, Int) {
     |> number_poses(0, nums, ".")
     |> list.map(fn(pair) { #(Pos(row, pair.0), pair.1) })
   })
-  |> list.flat_map(function.identity)
+  |> list.flatten
   |> dict.from_list
 }
 
