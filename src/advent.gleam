@@ -2,6 +2,7 @@ import day1
 import day2
 import day3
 import day4
+import day5
 import gleam/int
 import gleam/io
 import gleam/iterator
@@ -18,6 +19,7 @@ fn day_n_main(day: Int) -> Nil {
     2 -> day2.main()
     3 -> day3.main()
     4 -> day4.main()
+    5 -> day5.main()
     num if num <= 25 -> io.println("1. Unimplemented\n2. Unimplemented")
     _ -> panic as "Invalid Advent day"
   }
