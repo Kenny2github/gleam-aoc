@@ -32,11 +32,12 @@ pub fn read_output(day day: Int, part part: Int) -> String {
   output
 }
 
-pub fn run_part(
+pub fn map_reduce(
   day day: Int,
-  step step: fn(List(String)) -> List(Int),
+  map map: fn(List(String)) -> List(Int),
+  reduce reduce: fn(List(Int)) -> Int,
 ) -> String {
-  read_input(day) |> string.split("\n") |> step |> int.sum |> int.to_string
+  read_input(day) |> string.split("\n") |> map |> reduce |> int.to_string
 }
 
 pub fn test_part(day day: Int, part part: Int, code code: fn() -> String) -> Nil {

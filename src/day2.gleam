@@ -14,11 +14,15 @@ pub fn main() {
 }
 
 pub fn part1() -> String {
-  utils.run_part(2, list.filter_map(_, possible(_, red: 12, green: 13, blue: 14)))
+  utils.map_reduce(
+    2,
+    list.filter_map(_, possible(_, red: 12, green: 13, blue: 14)),
+    int.sum,
+  )
 }
 
 pub fn part2() -> String {
-  utils.run_part(2, list.filter_map(_, game_power))
+  utils.map_reduce(2, list.filter_map(_, game_power), int.sum)
 }
 
 type Round {

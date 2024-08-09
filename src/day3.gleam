@@ -15,11 +15,11 @@ pub fn main() {
 }
 
 pub fn part1() -> String {
-  utils.run_part(3, symbol_nums)
+  utils.map_reduce(3, symbol_nums, int.sum)
 }
 
 pub fn part2() -> String {
-  utils.run_part(3, gear_ratios)
+  utils.map_reduce(3, gear_ratios, int.sum)
 }
 
 type Pos {

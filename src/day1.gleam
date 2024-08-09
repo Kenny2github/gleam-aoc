@@ -12,11 +12,11 @@ pub fn main() {
 }
 
 pub fn part1() -> String {
-  utils.run_part(1, list.map(_, line_digit_num))
+  utils.map_reduce(1, list.map(_, line_digit_num), int.sum)
 }
 
 pub fn part2() -> String {
-  utils.run_part(1, list.map(_, line_word_num))
+  utils.map_reduce(1, list.map(_, line_word_num), int.sum)
 }
 
 fn line_digit_num(line line: String) -> Int {

@@ -13,11 +13,11 @@ pub fn main() {
 }
 
 pub fn part1() -> String {
-  utils.run_part(4, list.map(_, points))
+  utils.map_reduce(4, list.map(_, points), int.sum)
 }
 
 pub fn part2() -> String {
-  utils.run_part(4, cards)
+  utils.map_reduce(4, cards, int.sum)
 }
 
 fn points(line: String) -> Int {
