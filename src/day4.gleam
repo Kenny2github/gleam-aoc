@@ -30,8 +30,8 @@ fn wins(line: String) -> Int {
       "Card\\s+([1-9]\\d*):((?:\\s+[1-9]\\d*)+)\\s*\\|((?:\\s+[1-9]\\d*)+)",
     )
   let assert Ok(ws) = regex.from_string("\\s+")
-  let assert [match, ..] = regex.scan(re, line)
-  let assert [Some(_), Some(winning_str), Some(nums_str)] = match.submatches
+  let assert [regex.Match(_, [Some(_), Some(winning_str), Some(nums_str)]), ..] =
+    regex.scan(re, line)
   let winning =
     winning_str
     |> string.trim

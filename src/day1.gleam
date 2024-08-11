@@ -39,11 +39,11 @@ fn line_word_num(line line: String) -> Int {
   let assert Ok(re_back) =
     regex.from_string(string.reverse(num_words) <> "|[1-9]")
   let words = dict.from_list(words_list)
-  let assert Ok(first) = regex.scan(re_forth, line) |> list.first
-  let assert Ok(first) = dict.get(words, first.content)
-  let assert Ok(last) =
-    regex.scan(re_back, line |> string.reverse) |> list.first
-  let assert Ok(last) = dict.get(words, last.content |> string.reverse)
+  let assert [regex.Match(first, _), ..] = regex.scan(re_forth, line)
+  let assert Ok(first) = dict.get(words, first)
+  let assert [regex.Match(last, _), ..] =
+    regex.scan(re_back, line |> string.reverse)
+  let assert Ok(last) = dict.get(words, last |> string.reverse)
   digits_to_num([first, last], line)
 }
 

@@ -68,14 +68,17 @@ fn max_round(rounds: List(Round), max: Round) -> Round {
 fn game_rounds(line: String) -> Result(#(Int, List(Round)), Nil) {
   let assert Ok(re) = regex.from_string("Game ([1-9]\\d*):\\s+(.+)")
   let assert Ok(semicolon) = regex.from_string("\\s*;\\s*")
-  use line_match <- result.try(regex.scan(re, line) |> list.first)
-  let assert [Some(id_match), Some(rounds)] = line_match.submatches
-  let assert Ok(game_id) = int.parse(id_match)
-  Ok(#(
-    game_id,
-    regex.split(semicolon, rounds)
-      |> list.map(decode_round),
-  ))
+  case regex.scan(re, line) {
+    [regex.Match(_, [Some(id_match), Some(rounds)])] -> {
+      use game_id <- result.try(int.parse(id_match))
+      Ok(#(
+        game_id,
+        regex.split(semicolon, rounds)
+          |> list.map(decode_round),
+      ))
+    }
+    _ -> Error(Nil)
+  }
 }
 
 fn decode_round(round: String) -> Round {
