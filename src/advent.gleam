@@ -9,20 +9,20 @@ import gleam/io
 import gleam/iterator
 
 pub fn main() {
-  use day <- iterator.each(iterator.range(1, 25))
+  use day <- iterator.find(iterator.range(1, 25))
   io.println("Day " <> int.to_string(day) <> ":")
   day_n_main(day)
 }
 
-fn day_n_main(day: Int) -> Nil {
+fn day_n_main(day: Int) -> Bool {
   case day {
-    1 -> day1.main()
-    2 -> day2.main()
-    3 -> day3.main()
-    4 -> day4.main()
-    5 -> day5.main()
-    6 -> day6.main()
-    num if num <= 25 -> io.println("1. Unimplemented\n2. Unimplemented")
+    1 -> day1.main() != Nil
+    2 -> day2.main() != Nil
+    3 -> day3.main() != Nil
+    4 -> day4.main() != Nil
+    5 -> day5.main() != Nil
+    6 -> day6.main() != Nil
+    num if num <= 25 -> io.println("1. Unimplemented\n2. Unimplemented") == Nil
     _ -> panic as "Invalid Advent day"
   }
 }
